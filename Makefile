@@ -6,7 +6,7 @@
 #    By: thou <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/04 17:35:06 by thou              #+#    #+#              #
-#    Updated: 2017/04/05 16:09:53 by thou             ###   ########.fr        #
+#    Updated: 2017/04/05 16:14:13 by thou             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,18 +21,18 @@ WHITE		=	\033[37;1m
 RESET		=	\033[0m
 CLEAR		=	\033[H\e[J
 
-NAME		=	fdf
+NAME		=	fractol
 FLAG		=	-Wall -Werror -Wextra
 FLAGMLX		=	-lmlx -framework OpenGL -framework Appkit
 SRC_DIR		=	src/
-SRC_BASE	=	fdf.c map.c image.c color.c print.c ligne.c key.c
+SRC_BASE	=	fractol.c
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJ_DIR		=	obj/
 LIBFT		=	./libft
 LFT			=	./libft/libft.a
-LIBMLX		=	./minilibx_macos
-LMLX		=	./minilibx_macos/libmlx.a
-INCLUDES	=	-I./includes -I./libft/includes -I./minilibx_macos/
+LIBMLX		=	./minilibx
+LMLX		=	./minilibx/libmlx.a
+INCLUDES	=	-I./includes -I./libft/includes -I./minilibx/
 OBJ			=	$(addprefix $(OBJ_DIR), $(notdir $(SRC:.c=.o)))
 
 all: $(LFT) $(LMLX) $(NAME)
@@ -62,6 +62,6 @@ fclean:
 	@make clean -C $(LIBMLX)
 	@rm -rf obj
 	@rm -rf $(NAME)
-	@echo "$(YELLOW)Clean	fdf$(GREEN)			[ OK ]$(RESET)"
+	@echo "$(YELLOW)Clean	$(NAME)$(GREEN)			[ OK ]$(RESET)"
 
 re: fclean all
