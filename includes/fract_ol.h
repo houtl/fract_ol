@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 12:51:13 by thou              #+#    #+#             */
-/*   Updated: 2017/04/09 18:18:28 by thou             ###   ########.fr       */
+/*   Updated: 2017/04/13 18:19:22 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "libft.h"
 # include "mlx.h"
+# include "mlx_key.h"
+# include <math.h>
 
 # define WHITE		0xFFFFFF
 # define BLUE		0x0901F7
@@ -29,24 +31,31 @@
 # define RED		0xFE4D01
 # define BACKGROUND	0x4C1B1B
 
-# define UP			126
-# define DOWN		125
-# define LEFT		123
-# define RIGHT		124
-# define EXIT		53
-# define ISO_Z		6
-# define HELP		4
-# define BG			11
-# define ISO		34
-# define HIGH		13
-# define LOW		1
-# define GRAND		69
-# define PETIT		78
-# define ORIGIN		15
-# define ORIGIN_Z	0
-
 # define WIDTH		1920
 # define HEIGHT 	1080
+# define X1			-2.1
+# define X2			0.6
+# define Y1			-1
+# define Y2			1
+# define ZOOM		1.1
+
+# define RGB(r, g, b)(256 * 256 * (int)r + 256 * (int)g + (int)b)
+# define OFFSETX(x) (double)(-1 * ((double)(x) / WIDTH) * (X2 - X1))
+# define OFFSETY(y) (double)(     ((double)(y) / HEIGHT) * (Y2 - Y1))
+
+typedef struct	s_math
+{
+	double		x;
+	double		y;
+	double		a;
+	double		b;
+	double		m;
+	double		n;
+	double		o;
+	double		zoom_x;
+	double		zoom_y;
+	int			i;
+}				t_math;
 
 typedef struct	s_window
 {
@@ -55,6 +64,7 @@ typedef struct	s_window
 	void		*img;
 	char		*name;
 	char		*data;
+	int			color;
 	int			bpp;
 	int			sl;
 	int			ed;
@@ -62,7 +72,23 @@ typedef struct	s_window
 	int			info;
 	int			i;
 	void		(*func[8])(struct s_window *w);
+	int			rand[1000];
+	int			nuance;
+	double		zoom_x;
+	double		zoom_y;
+	double		offset_x;
+	double		offset_y;
+	double		center_x;
+	double		center_y;
+	int			mouse_x;
+	int			mouse_y;
 }				t_win;
+
+/*
+**				fractol.c
+*/
+
+void			reset(t_win *w);
 
 /*
 **				 image.c
@@ -89,5 +115,24 @@ int				my_fonct_key(int keycode, t_win *w);
 */
 
 void			mandelbrot(t_win *w);
+
+/*
+**				julia.c
+*/
+
+void			julia(t_win *w);
+
+/*
+**				color.c
+*/
+
+int				ft_color(t_win *w, int color);
+
+/*
+**				mouse.c
+*/
+
+int				ft_mouse(int x, int y, t_win *w);
+int				my_fonct_mouse(int button, int x, int y, t_win *w);
 
 #endif

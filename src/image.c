@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/09 15:09:59 by thou              #+#    #+#             */
-/*   Updated: 2017/04/09 17:40:00 by thou             ###   ########.fr       */
+/*   Updated: 2017/04/13 17:41:13 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,13 @@ void		ft_p_pixel_image(t_win *w, int y, int x, int color)
 		*(unsigned int*)(w->data + (x * (w->bpp)) + (y * w->sl)) = color;
 }
 
-static void	ft_background(t_win *w)
+static void	ft_rand(t_win *w)
 {
 	int x;
-	int y;
 
-	y = -1;
-	while (++y < HEIGHT)
-	{
-		x = -1;
-		while (++x < WIDTH)
-			ft_p_pixel_image(w, y, x, BACKGROUND);
-	}
+	x = -1;
+	while (++x < 1000)
+		w->rand[x] = rand();
 }
 
 void		init_image(t_win *w)
@@ -39,6 +34,6 @@ void		init_image(t_win *w)
 	if (w->data == NULL)
 		ft_error("GET_DATA ERROR");
 	w->bpp /= 8;
-	if (w->background < 0)
-		ft_background(w);
+	if (w->color == -1)
+		ft_rand(w);
 }

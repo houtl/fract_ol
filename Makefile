@@ -6,7 +6,7 @@
 #    By: thou <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/04 17:35:06 by thou              #+#    #+#              #
-#    Updated: 2017/04/09 18:01:59 by thou             ###   ########.fr        #
+#    Updated: 2017/04/13 18:15:23 by thou             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ NAME		=	fractol
 FLAG		=	-Wall -Werror -Wextra
 FLAGMLX		=	-lmlx -framework OpenGL -framework Appkit
 SRC_DIR		=	src/
-SRC_BASE	=	fractol.c image.c info.c key.c mandelbrot.c
+SRC_BASE	=	fractol.c image.c info.c key.c mandelbrot.c color.c mouse.c julia.c
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJ_DIR		=	obj/
 LIBFT		=	./libft
