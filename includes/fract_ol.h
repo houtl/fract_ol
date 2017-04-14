@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 12:51:13 by thou              #+#    #+#             */
-/*   Updated: 2017/04/14 16:55:21 by thou             ###   ########.fr       */
+/*   Updated: 2017/04/14 17:35:56 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 # define Y1			-1
 # define Y2			1
 # define ZOOM		1.1
+# define NUANCE		50
 
 # define RGB(r, g, b)(256 * 256 * (int)r + 256 * (int)g + (int)b)
 # define OFFSETX(x) (double)(-1 * ((double)(x) / WIDTH) * (X2 - X1))

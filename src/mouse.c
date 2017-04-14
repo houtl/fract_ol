@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 14:59:41 by thou              #+#    #+#             */
-/*   Updated: 2017/04/14 16:14:34 by thou             ###   ########.fr       */
+/*   Updated: 2017/04/14 17:42:21 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	reset_center(t_win *w, int x, int y)
 	w->offset_y += OFFSETY((w->center_y - y) / w->zoom_y);
 	w->center_x = x;
 	w->center_y = y;
-}	
+}
 
 int		ft_mouse(int x, int y, t_win *w)
 {

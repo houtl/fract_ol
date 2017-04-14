@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 15:19:05 by thou              #+#    #+#             */
-/*   Updated: 2017/04/14 16:05:12 by thou             ###   ########.fr       */
+/*   Updated: 2017/04/14 17:41:48 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	mandel3(int y, int x, t_win *w)
 		m.m = m.a * m.a;
 		m.n = m.b * m.b;
 		m.o = m.a * m.b;
-		m.a = m.m * m.m - 6 * m.m * m.n + m.n * m.n+ m.x;
+		m.a = m.m * m.m - 6 * m.m * m.n + m.n * m.n + m.x;
 		m.b = 4 * m.m * m.o + 4 * m.n * m.o + m.y;
 		if (m.m + m.n > 4)
 			return (ft_color(w, m.i));
