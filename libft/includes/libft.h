@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 10:22:36 by thou              #+#    #+#             */
-/*   Updated: 2017/04/06 17:58:13 by thou             ###   ########.fr       */
+/*   Updated: 2017/04/14 16:36:16 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdint.h>
+# include <fcntl.h>
 # include "get_next_line.h"
 # include "ft_printf.h"
 

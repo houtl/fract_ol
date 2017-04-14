@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 12:51:13 by thou              #+#    #+#             */
-/*   Updated: 2017/04/13 18:19:22 by thou             ###   ########.fr       */
+/*   Updated: 2017/04/14 16:55:21 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,16 @@ typedef struct	s_window
 	void		*img;
 	char		*name;
 	char		*data;
+	char		*tab[9];
 	int			color;
 	int			bpp;
 	int			sl;
 	int			ed;
 	int			background;
+	int			changejulia;
 	int			info;
 	int			i;
-	void		(*func[8])(struct s_window *w);
+	int			(*func[8])(int	y, int x, struct s_window *w);
 	int			rand[1000];
 	int			nuance;
 	double		zoom_x;
@@ -101,6 +103,8 @@ void			ft_p_pixel_image(t_win *w, int y, int x, int color);
 **				info.c
 */
 
+void			ft_put_info(t_win *w);
+void			ft_fract_ol(t_win *w);
 void			usage(void);
 void			ft_error(char *str);
 
@@ -109,18 +113,6 @@ void			ft_error(char *str);
 */
 
 int				my_fonct_key(int keycode, t_win *w);
-
-/*
-**				mandelbrot.c
-*/
-
-void			mandelbrot(t_win *w);
-
-/*
-**				julia.c
-*/
-
-void			julia(t_win *w);
 
 /*
 **				color.c
@@ -134,5 +126,53 @@ int				ft_color(t_win *w, int color);
 
 int				ft_mouse(int x, int y, t_win *w);
 int				my_fonct_mouse(int button, int x, int y, t_win *w);
+
+/*
+**				mandelbrot.c
+*/
+
+int				mandelbrot(int y, int x, t_win *w);
+
+/*
+**				julia.c
+*/
+
+int				julia(int y, int x, t_win *w);
+
+/*
+**				julia4.c
+*/
+
+int				julia4(int y, int x, t_win *w);
+
+/*
+**				mandel3.c
+*/
+
+int				mandel3(int y, int x, t_win *w);
+
+/*
+**				mandel5.c
+*/
+
+int				mandel5(int y, int x, t_win *w);
+
+/*
+**				multibrot.c
+*/
+
+int				multibrot(int y, int x, t_win *w);
+
+/*
+**				quinticorn.c
+*/
+
+int				quinticorn(int y, int x, t_win *w);
+
+/*
+**				tricorn.c
+*/
+
+int				tricorn(int y, int x, t_win *w);
 
 #endif

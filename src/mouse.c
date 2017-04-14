@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 14:59:41 by thou              #+#    #+#             */
-/*   Updated: 2017/04/13 18:12:56 by thou             ###   ########.fr       */
+/*   Updated: 2017/04/14 16:14:34 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ int		ft_mouse(int x, int y, t_win *w)
 {
 	if (w->color == -1 && x == -1 && y == -1)
 		return (1);
-	if (w->i == 1)
+	if (w->i > 0 && w->changejulia == 1)
 	{
 		w->mouse_x = x;
 		w->mouse_y = y;
 	}
 	init_image(w);
-	w->func[w->i](w);
+	ft_fract_ol(w);
 	return (0);
 }
 
@@ -49,7 +49,7 @@ int		my_fonct_mouse(int button, int x, int y, t_win *w)
 		w->zoom_y /= ZOOM;
 	}
 	init_image(w);
-	w->func[w->i](w);
+	ft_fract_ol(w);
 	reset_center(w, WIDTH / 2, HEIGHT / 2);
 	return (0);
 }

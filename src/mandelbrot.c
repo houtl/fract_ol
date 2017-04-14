@@ -6,13 +6,13 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/09 17:26:28 by thou              #+#    #+#             */
-/*   Updated: 2017/04/13 17:20:59 by thou             ###   ########.fr       */
+/*   Updated: 2017/04/14 16:04:43 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract_ol.h"
 
-int		repeat(int y, int x, t_win *w)
+int	mandelbrot(int y, int x, t_win *w)
 {
 	t_math	m;
 
@@ -33,21 +33,5 @@ int		repeat(int y, int x, t_win *w)
 		if (m.m + m.n > 4)
 			return (ft_color(w, m.i));
 	}
-	return (0xFFFFFF);
-}
-
-void	mandelbrot(t_win *w)
-{
-	int		x;
-	int		y;
-
-	y = -1;
-	while (++y < HEIGHT)
-	{
-		x = -1;
-		while (++x < WIDTH)
-			ft_p_pixel_image(w, y, x, repeat(y, x, w));
-	}
-	mlx_put_image_to_window(w->mlx, w->win, w->img, 0, 0);
-	mlx_destroy_image(w->mlx, w->img);
+	return (w->background);
 }
